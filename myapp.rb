@@ -87,12 +87,8 @@ ARTISTS = [
            "otis redding"
           ]
 
-get "/" do
-  haml :index
-end
-
-get "/search" do
-  query = params[:query].downcase
+def search()
+  query = params[:query]
   @message = "Turn if off!"
   @match = false
   if ::ARTISTS.member?(query) || ::SONGS.member?(query)
@@ -100,4 +96,16 @@ get "/search" do
     @match = true
   end
   haml :search
+end
+
+get "/" do
+  haml :index
+end
+
+get "/search/:query" do
+  search
+end
+
+get "/search" do
+  search
 end
