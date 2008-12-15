@@ -1,5 +1,5 @@
 require "rubygems"
-require "vendor/sinatra/lib/sinatra"
+require "vendor/sinatra/lib/sinatra.rb"
 
 SONGS = [
          "turn, turn, turn",
