@@ -6,7 +6,7 @@
   %body{ :onload => "document.getElementById('query').focus()" }
     %h1 Dude, is that Freedom Rock?
     #main
-      %form{ :method => "post", :action => "/search" }
+      %form{ :method => "get", :action => "/search" }
         %label{ :for => "query" }Enter an artist or song name:
         %input{ :id => "query", :type => "text", :id => "query", :name => "query" }
         %input{ :id => "submit", :type => "submit", :name => "submit", :value => "ask the hippy!" }

@@ -91,7 +91,7 @@ get "/" do
   haml :index
 end
 
-post "/search" do
+get "/search" do
   query = params[:query].downcase
   @message = "Turn if off!"
   @match = false
