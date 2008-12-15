@@ -1,0 +1,28 @@
+body {
+  font-family: "Verdana", "Tahoma", sans-serif;
+  font-size: 30px;
+  padding: 0 36px;
+}
+
+#main {
+  width: 60%;
+  position: relative;
+  left: 20%;
+  right: 20%;
+}
+
+label {
+  display: block;
+}
+
+input {
+  font-size: 24px;
+}
+
+input#query {
+  width: 20em;
+}
+
+a, a:visited {
+  color: blue;
+}
