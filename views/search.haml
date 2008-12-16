@@ -7,10 +7,11 @@
     %h1
     #main
       -if @match
-        %h2
+        %h2="#{@message}"
+        %h3
           That
           %em is
-          Freedom Rock! Turn it up!
+          Freedom Rock!
         %object{ :width => "425",  :height => "344" }
           %param{ :name => "movie", :value => "http://www.youtube.com/v/2eGWW8KOQio&hl=en&fs=1" }
           %param{ :name => "allowFullScreen", :value => "true" }
@@ -19,4 +20,4 @@
       -else
         %h2="#{params[:query]}??? Turn it off!"
       %br/
-      %a{ :href => "/" }Try again
+      %a{ :href => "/" }Try again, man
