@@ -88,11 +88,11 @@ ARTISTS = [
           ]
 
 def search()
-  query = params[:query]
-  @message = "Turn if off!"
+  query = params[:query].downcase
+  @message = "Turn if off, man!"
   @match = false
   if ::ARTISTS.member?(query) || ::SONGS.member?(query)
-    @message = "Turn in up!"
+    @message = "Well, turn it up, man!"
     @match = true
   end
   haml :search
