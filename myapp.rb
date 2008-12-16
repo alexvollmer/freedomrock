@@ -89,12 +89,7 @@ ARTISTS = [
 
 def search()
   query = params[:query]
-  @message = "Turn if off!"
-  @match = false
-  if ::ARTISTS.member?(query) || ::SONGS.member?(query)
-    @message = "Turn in up!"
-    @match = true
-  end
+  @match = ARTISTS.member?(query) || SONGS.member?(query)
   haml :search
 end
 
