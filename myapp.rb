@@ -99,7 +99,7 @@ ARTISTS = [
           ]
 
 def search()
-  query = params[:query]
+  query = params[:query].downcase
   @match = ARTISTS.member?(query) || SONGS.member?(query)
   haml :search
 end
