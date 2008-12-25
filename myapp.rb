@@ -1,5 +1,20 @@
 require "rubygems"
 require "vendor/sinatra/lib/sinatra.rb"
+require "vendor/text/lib/text.rb"
+
+def normalize(str)
+  str.gsub('&', 'and').gsub(/\W+/, '').gsub('the', '')
+end
+
+module Matching
+  def match(term)
+    m1 = Text::Metaphone.metaphone(term)
+    self.find do |x|
+      m2 = Text::Metaphone.metaphone(normalize(x))
+      Text::Levenshtein.distance(m1, m2) <= 1
+    end
+  end
+end
 
 SONGS = [
          "turn, turn, turn",
@@ -43,6 +58,9 @@ SONGS = [
          "me and you and a dog named boo",
          "sittin' on the dock of the bay"
         ]
+class << SONGS
+  include Matching
+end
 
 ARTISTS = [
            "the byrds",
@@ -97,10 +115,13 @@ ARTISTS = [
            "lobo",
            "otis redding"
           ]
+class << ARTISTS
+  include Matching
+end
 
 def search()
-  query = params[:query]
-  @match = ARTISTS.member?(query) || SONGS.member?(query)
+  query = normalize(params[:query])
+  @match = ARTISTS.match(query) || SONGS.match(query)
   haml :search
 end
 
