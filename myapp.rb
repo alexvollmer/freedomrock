@@ -3,7 +3,7 @@ require "vendor/sinatra/lib/sinatra.rb"
 require "vendor/text/lib/text.rb"
 
 def normalize(str)
-  str.gsub('&', 'and').gsub(/\W+/, '').gsub('the', '')
+  str.downcase.gsub('&', 'and').gsub(/\W+/, '').gsub('the', '')
 end
 
 module Matching
