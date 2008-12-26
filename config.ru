@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'vendor/sinatra/lib/sinatra.rb'
-require 'vendor/text/lib/text.rb'
 
 Sinatra::Application.default_options.merge!(
   :run => false,

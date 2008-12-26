@@ -1,6 +1,7 @@
 require "rubygems"
 require "vendor/sinatra/lib/sinatra.rb"
-require "vendor/text/lib/text.rb"
+require "vendor/text/lib/text/metaphone.rb"
+require "vendor/text/lib/text/levenshtein.rb"
 
 def normalize(str)
   str.downcase.gsub('&', 'and').gsub(/\W+/, '').gsub('the', '')
